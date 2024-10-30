@@ -1,30 +1,20 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-get-app-list';
+import React, { useState, useEffect } from 'react';
+import { Text, ScrollView } from 'react-native';
+import type { InstalledApp } from '../../src/types';
+import { getInstalledApps } from 'react-native-get-app-list';
 
-export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+const App: React.FC = () => {
+  const [result, setResult] = useState<InstalledApp[]>([]);
 
   useEffect(() => {
-    multiply(3, 7).then(setResult);
+    getInstalledApps().then(setResult);
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <ScrollView>
+      <Text>{JSON.stringify(result, null, 2)}</Text>
+    </ScrollView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+export default App;

@@ -17,6 +17,11 @@ const GetAppList = NativeModules.GetAppList
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return GetAppList.multiply(a, b);
+export function getInstalledApps(): Promise<any> {
+  if (Platform.OS !== 'android') {
+    return Promise.reject(
+      new Error('This library is only available on Android.')
+    );
+  }
+  return GetAppList.getInstalledApps();
 }
