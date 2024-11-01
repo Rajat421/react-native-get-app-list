@@ -1,33 +1,92 @@
 # react-native-get-app-list
 
-get all installed app list with version code
+A React Native library to retrieve a list of all installed applications on the device, including their package names and version codes.
+
+## Note: This Library only available for Android
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
+
+To install the package, use npm or yarn:
 
 ```sh
 npm install react-native-get-app-list
 ```
 
+or
+
+```sh
+yarn add react-native-get-app-list
+```
+
 ## Usage
 
+To retrieve the list of installed apps, including their package names and version codes, use the `getInstalledApps` function:
 
-```js
-import { multiply } from 'react-native-get-app-list';
+```javascript
+import { getInstalledApps } from 'react-native-get-app-list';
 
 // ...
 
-const result = await multiply(3, 7);
+async function fetchInstalledApps() {
+  try {
+    const result = await getInstalledApps();
+    console.log(result); // Displays the list of installed apps
+  } catch (error) {
+    console.error('Error fetching installed apps:', error);
+  }
+}
+
+// Call the function to fetch installed apps
+fetchInstalledApps();
 ```
 
+### Example Output
+
+The output will be an array of objects, each containing the `packageName`, `versionName`, and `versionCode` of the installed apps:
+
+```json
+[
+  {
+    "packageName": "com.example.app",
+    "versionName": "1.0.0",
+    "versionCode": 1
+  },
+  {
+    "packageName": "com.another.example",
+    "versionName": "2.3.1",
+    "versionCode": 5
+  }
+]
+```
+
+## API Reference
+
+### `getInstalledApps()`
+
+Returns a promise that resolves with an array of installed applications, including their package names and version codes.
+
+**Returns:** `Promise<Array<Object>>`
+
+**Example:**
+
+```javascript
+const apps = await getInstalledApps();
+```
 
 ## Contributing
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+Contributions are welcome! Please see the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
