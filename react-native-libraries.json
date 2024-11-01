@@ -1,0 +1,18 @@
+{
+  "githubUrl": "https://github.com/aravind3566/react-native-get-app-list",
+  "npmPkg": "react-native-get-app-list",
+  "examples": [],
+  "images": [],
+  "ios": false,
+  "android": true,
+  "web": false,
+  "expoGo": false,
+  "windows": false,
+  "macos": false,
+  "tvos": false,
+  "visionos": false,
+  "unmaintained": false,
+  "dev": false,
+  "template": false,
+  "newArchitecture": true
+}
