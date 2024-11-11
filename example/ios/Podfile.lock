@@ -1213,7 +1213,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-get-app-list (0.1.0):
+  - react-native-get-app-list (0.1.2):
     - DoubleConversion
     - glog
     - RCT-Folly (= 2024.01.01.00)
@@ -1506,7 +1506,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - ReactTestApp-DevSupport (3.10.18):
+  - ReactTestApp-DevSupport (3.10.22):
     - React-Core
     - React-jsi
   - ReactTestApp-Resources (1.0.0-dev)
@@ -1753,7 +1753,7 @@ SPEC CHECKSUMS:
   React-logger: 97c9dafae1f1a638001a9d1d0e93d431f2f9cb7b
   React-Mapbuffer: 3146a13424f9fec2ea1f1462d49d566e4d69b732
   React-microtasksnativemodule: ce7161b8640826f2a0547bc321aa51665bdaed30
-  react-native-get-app-list: 40a5f130bd0fb0c69386f3b50857af52c70ed626
+  react-native-get-app-list: 1e26238d0079f65c150a7327fb7abd8d32678cb6
   React-nativeconfig: 93fe8c85a8c40820c57814e30f3e44b94c995a7b
   React-NativeModulesApple: ae1a2dd7d436ac8b559ee14e6122bc0f66586ee3
   React-perflogger: 1c55bcd3c392137cbaf0d21d8bb87ce9a0cebb15
@@ -1781,7 +1781,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 99e6fbdfffe5dc5f7ef23a40d27b01204cbb8c3f
   ReactCommon: 8a0140acb60099a2beb4df4b0f19e738c1fe7d0b
   ReactNativeHost: 99c0ffb175cd69de2ac9a70892cd22dac65ea79d
-  ReactTestApp-DevSupport: 1e39530b4a8602e7138a5b9dfafe41d3a78382ff
+  ReactTestApp-DevSupport: 42abce6b0c88dfb47c86e80aa22831b2abcc3144
   ReactTestApp-Resources: ef64fb77d09031eba0ada7240f39d4579fa02361
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: db69236006b8b1c6d55ab453390c882306cbf219
