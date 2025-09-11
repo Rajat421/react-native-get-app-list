@@ -55,25 +55,25 @@ The output will be an array of objects, each containing the `packageName`, `vers
 ```json
 [
   {
-    "icon":'iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACA...',
+    "icon":"iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACA...",
     "appName": "Calculator",
     "packageName": "com.miui.calculator",
     "versionName": "15.0.14"
   },
   {
-      "icon":'iVBORw0KGgoAAAA...',
+      "icon":"iVBORw0KGgoAAAA...",
       "appName": "Scanner",
       "packageName": "com.xiaomi.scanner",
       "versionName": "13.2204.5"
   },
   {
-      "icon":'iVBORw0KGgoAAAA...',
+      "icon":"iVBORw0KGgoAAAA...",
       "appName": "Gallery Editor",
       "packageName": "com.miui.mediaeditor",
       "versionName": "1.8.0.12-global"
   },
   {
-      "icon":'iVBORw0KGgoAAAA...',
+      "icon":"iVBORw0KGgoAAAA...",
       "appName": "Find My Device",
       "packageName": "com.google.android.apps.adm",
       "versionName": "3.1.173-1"
