@@ -1,6 +1,6 @@
 {
   "name": "react-native-get-app-list",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A comprehensive library to retrieve the list of all installed applications on Android devices, including detailed information such as package names, app name and version codes.",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
