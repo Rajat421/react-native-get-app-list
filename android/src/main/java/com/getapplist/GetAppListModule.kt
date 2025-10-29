@@ -27,6 +27,8 @@ class GetAppListModule(reactContext: ReactApplicationContext) :
         val app: WritableMap = Arguments.createMap()
         app.putString("packageName", packageInfo.packageName)
         app.putString("appName", pm.getApplicationLabel(appInfo).toString())
+        app.putString("versionName", packageInfo.versionName)
+
 
         apps.pushMap(app)
       }
