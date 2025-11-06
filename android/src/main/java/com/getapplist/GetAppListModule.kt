@@ -20,8 +20,8 @@ class GetAppListModule(private val reactContext: ReactApplicationContext)
 
         try {
           val info = pm.getPackageInfo(packageName!!, 0)
-
-          val appName = pm.getApplicationLabel(info.applicationInfo).toString()
+          val appInfo = info.applicationInfo ?: continue
+          val appName = pm.getApplicationLabel(appInfo).toString()
           val versionName = info.versionName ?: ""
           val versionCode =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
