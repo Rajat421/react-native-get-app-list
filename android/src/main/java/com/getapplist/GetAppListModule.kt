@@ -1,45 +1,50 @@
 package com.getapplist
 
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.os.Build
 import com.facebook.react.bridge.*
 
-class GetAppListModule(reactContext: ReactApplicationContext) :
-  ReactContextBaseJavaModule(reactContext) {
+class GetAppListModule(private val reactContext: ReactApplicationContext)
+  : ReactContextBaseJavaModule(reactContext) {
 
-  override fun getName(): String = NAME
+  override fun getName(): String = "GetAppList"
 
   @ReactMethod
-  fun getInstalledApps(promise: Promise) {
+  fun getInstalledDeclaredApps(packagesToCheck: ReadableArray, promise: Promise) {
     try {
-      val pm = reactApplicationContext.packageManager
+      val pm = reactContext.packageManager
+      val result = Arguments.createArray()
 
-      // GET_META_DATA works on all API levels
-      val packages = pm.getInstalledPackages(PackageManager.GET_META_DATA)
-      val apps: WritableArray = Arguments.createArray()
+      for (i in 0 until packagesToCheck.size()) {
+        val packageName = packagesToCheck.getString(i)
 
-      for (packageInfo in packages) {
-        val appInfo = packageInfo.applicationInfo ?: continue
+        try {
+          val info = pm.getPackageInfo(packageName!!, 0)
 
-        // Skip system apps
-        if ((appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0) continue
+          val appName = pm.getApplicationLabel(info.applicationInfo).toString()
+          val versionName = info.versionName ?: ""
+          val versionCode =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+              info.longVersionCode.toInt()
+            else
+              info.versionCode
 
-        val app: WritableMap = Arguments.createMap()
-        app.putString("packageName", packageInfo.packageName)
-        app.putString("appName", pm.getApplicationLabel(appInfo).toString())
-        app.putString("versionName", packageInfo.versionName)
+          val map = Arguments.createMap()
+          map.putString("packageName", packageName)
+          map.putString("appName", appName)
+          map.putString("version", versionName)
+          map.putInt("versionCode", versionCode)
 
-
-        apps.pushMap(app)
+          result.pushMap(map)
+        } catch (_: Exception) {
+          // Not installed → ignore
+        }
       }
 
-      promise.resolve(apps)
-    } catch (e: Exception) {
-      promise.reject("Error", e)
-    }
-  }
+      promise.resolve(result)
 
-  companion object {
-    const val NAME = "GetAppList"
+    } catch (e: Exception) {
+      promise.reject("ERROR", e.message)
+    }
   }
 }
